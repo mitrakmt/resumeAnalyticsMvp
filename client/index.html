@@ -1,0 +1,108 @@
+<!doctype html>
+<html>
+  <head>
+    <link rel="stylesheet" href="./node_modules/angular-material/angular-material.min.css">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body ng-app="fileUpload" ng-controller="MyCtrl">
+
+    <!-- add ng if for logged in -->
+    <div class="auth background hide" layout-align="center center" ng-cloak>
+      <h1 class="md-display-3 authTitle">Sign in</h1>
+      <md-card class="authCard">
+          <form>
+            <div class="group">
+              <input type="text" ng-model="user.email" required>
+              <span class="highlight"></span>
+              <span class="bar"></span>
+              <label>Name</label>
+            </div>
+
+            <div class="group">
+              <input type="text" ng-model="user.password" required>
+              <span class="highlight"></span>
+              <span class="bar"></span>
+              <label>Email</label>
+            </div>
+
+            <md-button class="md-button md-raised theme" ng-click="login(username, password)">Login</md-button>
+          </form>
+      </md-card>
+    </div>
+
+    <div class="main-body"> <!-- add ng if for logged in -->
+
+      <header class="container title" layout-align="center">
+        <h1 class="md-display-2" style="margin-bottom: 0;">Recommé</h1>
+        <h4 class="md-title" style="margin-top: 10px;">Your dream interview awaits.</h4>
+      </header>
+
+      <div class="background" ng-cloak>
+        <div class="upload-section">
+          <h4>Upload your resume</h4>
+          <md-button type="file" class="md-button md-raised theme" ngf-select="uploadFiles($file, $invalidFiles)"
+                  accept="image/*" ngf-max-height="1000" ngf-max-size="1MB">
+              Select File
+          </md-button>
+          <br><br>
+
+          <!-- add ng if for file uploaded -->
+          <md-card class="upload-status-card file-card" md-padding>
+              <div style="font:smaller">File: {{f.name}} {{errFile.name}} {{errFile.$error}} {{errFile.$errorParam}}
+                  <span class="progress" ng-show="f.progress >= 0">
+                      <div style="width:{{f.progress}}%" ng-bind="f.progress + '%'">
+                      </div>
+                  </span>
+              </div>
+          </md-card>
+          {{errorMsg}}
+        </div>
+
+        <md-card class="results-card" layout="row" layout-xs="column" md-padding>
+          <div class="results" layout="column" layout-align="left" flex>
+            <h1 class="md-display-2">Results</h1>
+            <md-divider></md-divider>
+            <br>
+            <p class="md-title totalScore"><span class='reco-title'>Total</span> : {{ totalScore }} / 100 points</p>
+            <p class="md-title lengthScoreHelp"><span class='reco-title'>Length</span> : {{ lengthScore }}</p>
+            <p class="md-title sentimentHelp"><span class='reco-title'>Sentiment</span> : {{ sentiment }}</p>
+            <p class="md-title languageScoreHelp"><span class='reco-title'>Language Level</span> :  {{ languageScore }}</p>
+            <p class="md-title readabilityHelp"><span class='reco-title'>Readability</span> :  {{ readability }}</p>
+            <p class="md-title keywordsHelp"><span class='reco-title'>Keywords</span> : {{ keywords }}</p>
+          </div>
+        </md-card>
+
+        <div class="about" layout="row" layout-xs="column" layout-align="center">
+          <md-card class="about-section" flex="33" layout-margin>
+            <h1 class="md-display-2">How it works</h1>
+            <md-divider></md-divider>
+            <h2 class="md-display-1">Step 1: Upload your resume</h2>
+            <h4 class="md-title">Yup. Just do it - in .txt plz</h4>
+          </md-card>
+          <md-card class="about-section" flex="33" layout-margin>
+            <h2 class="md-display-1">Step 2: Our algorithms score your resume</h2>
+            <h4 class="md-title">That's right.. magic. <br>Magic that's based on 8 industry standard parameters.</h4>
+          </md-card>
+          <md-card class="about-section" flex="33" layout-margin>
+            <h2 class="md-display-1">Step 3: Get instant feedback</h2>
+            <h4 class="md-title">You'll eventually get a detailed report. <br>Right now, you just get a few words on the screen.</h4>
+          </md-card>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="./node_modules/angular/angular.min.js"></script>
+    <script src="./node_modules/angular-animate/angular-animate.min.js"></script>
+    <script src="./node_modules/angular-aria/angular-aria.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+
+    <!-- Angular Material Library -->
+    <script src="./node_modules/angular-material/angular-material.min.js"></script>
+    <script src="./node_modules/ng-file-upload/dist/ng-file-upload-shim.js"></script>
+    <script src="./node_modules/ng-file-upload/dist/ng-file-upload.js"></script>
+
+    <script src="upload.js"></script>
+
+  </body>
+</html>

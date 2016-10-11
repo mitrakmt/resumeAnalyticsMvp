@@ -1,0 +1,269 @@
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  background-color: white;
+  color: white;
+}
+
+.background {
+  opacity: .9;
+  min-height: 100%;
+  margin-bottom: 0;
+	background-size: cover;
+  padding-bottom: 30px;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-position: center center;
+  background-image: url('https://source.unsplash.com/DgEA7saT8FQ/1600x900/');
+}
+
+.auth {
+  margin: 0;
+}
+
+.authTitle {
+  padding-top: 90px;
+}
+
+.md-display-3 {
+  text-align: center;
+  margin-bottom: -50px;
+  margin-top: 0;
+}
+
+.authCard {
+  background-color: white;
+  opacity: .9;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 150px;
+  width: 800px;
+  padding-top: 30px;
+}
+
+.authCard input {
+  text-align: center;
+}
+
+.authButton {
+  width: 80px;
+  color: black;
+}
+
+.results {
+  text-align: left;
+}
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+header {
+  z-index:2;
+  background-color: #3f51b5;
+  padding: 1em 4em 1em 4em;
+  color: #FFF;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+  position: relative;
+}
+
+.thumb {
+    width: 24px;
+    height: 24px;
+    float: none;
+    position: relative;
+    top: 7px;
+}
+
+form .progress {
+    line-height: 15px;
+}
+
+.progress {
+    display: inline-block;
+    width: 100px;
+}
+
+.progress div {
+    font-size: smaller;
+    background: #4054B2;
+    width: 0;
+    color: white;
+    border: 1px groove #CCC;
+    border-radius: 3px;
+}
+
+.md-display-1 {
+  margin: 0 !important;
+}
+
+.title {
+  text-align: center;
+}
+
+md-card {
+  background-color: white;
+  color: black;
+  opacity: .8;
+  margin: 40px;
+  padding: 15px;
+  margin-left: 150px;
+  margin-right: 150px;
+  border-radius: 5px;
+}
+
+.md-display-2 {
+  margin-bottom: 20px;
+  margin-top: 10px;
+}
+
+.theme {
+  background-color: #4054B2;
+}
+
+.reco-title {
+  font-weight: bold;
+  padding: 6px;
+  border: 1px solid gray;
+  border-radius: 4px;
+}
+
+.upload-section {
+  text-align: center;
+}
+
+.upload-section h4 {
+  text-align: center;
+  font-size: 35px;
+  color: white;
+  margin-top: 0;
+  padding-top: 45px;
+}
+
+.about {
+  color: black;
+  text-align: center;
+  font-weight: 200;
+}
+
+.about-section h2 {
+  font-weight: bold;
+  margin-top: 25px !important;
+}
+
+.upload-status-card {
+  max-height: 125px;
+  margin-left: 150px;
+  margin-right: 150px;
+}
+
+.about h1 {
+  color: black;
+  margin: 10px;
+  margin-top: 5px;
+  text-align: center;
+}
+
+.md-raised {
+  color: white;
+}
+
+.highlight {
+  position:absolute;
+  height:60%;
+  width:100px;
+  top:25%;
+  left:0;
+  pointer-events:none;
+  opacity:0.5;
+}
+
+/* active state */
+input:focus ~ .highlight {
+  animation:inputHighlighter 0.3s ease;
+}
+
+/* ANIMATIONS ================ */
+@keyframes inputHighlighter {
+  from  { background:#5264AE; }
+  to    { width:0; background:transparent; }
+}
+
+input:focus ~ label, input:valid ~ label {
+  top:-20px;
+  font-size:14px;
+  color:#5264AE;
+}
+
+.bar  { position:relative; display:block; width:300px; }
+.bar:before, .bar:after   {
+  content:'';
+  height:2px;
+  width:0;
+  bottom:1px;
+  position:absolute;
+  background:#5264AE;
+  transition:0.2s ease all;
+}
+.bar:before {
+  left:50%;
+}
+.bar:after {
+  right:50%;
+}
+
+/* active state */
+input:focus ~ .bar:before, input:focus ~ .bar:after {
+  width:50%;
+}
+
+label          {
+  color:#999;
+  font-size:18px;
+  font-weight:normal;
+  position:absolute;
+  pointer-events:none;
+  left:5px;
+  top:10px;
+  transition:0.2s ease all;
+}
+
+/* active state */
+input:focus ~ label, input:valid ~ label     {
+  top:-20px;
+  font-size:14px;
+  color:#5264AE;
+}
+
+.group        {
+  position:relative;
+  margin-bottom:45px;
+  margin-left: 220px;
+}
+input         {
+  font-size:18px;
+  padding:10px 10px 10px 5px;
+  display:block;
+  width:300px;
+  border:none;
+  border-bottom:1px solid #757575;
+}
+input:focus     { outline:none; }
