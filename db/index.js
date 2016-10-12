@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 const dotenv = require('dotenv')
 const User = require('./User.js');
-const Resume = require('./Resume.js');
 
 dotenv.config();
 let dbURL = "mongodb://" + process.env.DBUSER + ":" + process.env.DBPASS +  '@ds021994.mlab.com:21994/resugenius';
