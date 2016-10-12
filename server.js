@@ -21,8 +21,6 @@ app.use(session({
   cookie: { secure: true }
 }))
 
-// Create file to store job industry, and create for optimal keywords
-
 app.use('/', express.static(__dirname + '/client'));
 
 app.use('/api', rootRouter);

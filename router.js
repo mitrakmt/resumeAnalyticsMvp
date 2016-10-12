@@ -19,20 +19,21 @@ Router.route('/signup')
     })
   });
 
+// Logout user
 Router.route('/logout')
   .post(Middleware.destroyToken, function (req, res) {
     res.status(200).send("You have successfully logged out");
   })
 
+// Login user
 Router.route('/login')
   .post(Middleware.checkPass, Middleware.makeToken, function (req, res) {
     res.status(200).send("Login successful");
   });
 
+// Upload file 
 Router.route('/fileUpload')
   .get(Middleware.findUser, Helpers.languageScore, Helpers.keywords, Helpers.lengthChecker, Helpers.keywords, Helpers.totalScore, (req, res) => {
-      console.log("Score: ", req.body.totalScore)
-
       res.status(200).send({
         "body": req.body
       });
