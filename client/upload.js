@@ -15,6 +15,13 @@ app.controller('MyCtrl', ['$scope', 'Upload', '$timeout', '$http', function ($sc
       })
   }
 
+  $scope.signup = function (userName, userEmail, userPassword) {
+    $http.post("/api/signup", {name: userName, email: userEmail, password: userPassword})
+      .then(function (data) {
+        console.log(data)
+      })
+  }
+
   $scope.uploadFiles = function(file, errFiles) {
     $scope.f = file;
     $scope.errFile = errFiles && errFiles[0];

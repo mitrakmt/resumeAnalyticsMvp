@@ -8,27 +8,58 @@
     <div class="background">
 
       <div class="auth" ng-hide="signedIn" layout-align="center center" ng-cloak>
-        <h1 class="md-display-3 authTitle">Sign in</h1>
+        <div layout="row">
 
-        <md-card class="authCard">
-          <form>
-            <div class="group">
-              <input type="text" class="signinInput" ng-model="username" required>
-              <span class="highlight"></span>
-              <span class="bar"></span>
-              <label>Email</label>
-            </div>
+          <h1 class="md-display-3 authTitle">Sign in</h1>
+          <md-card class="authCard">
+            <form>
+              <div class="group">
+                <input type="text" class="signinInput" ng-model="username" required>
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <label>Email</label>
+              </div>
 
-            <div class="group">
-              <input type="password" class="signinInput" ng-model="password" required>
-              <span class="highlight"></span>
-              <span class="bar"></span>
-              <label>Password</label>
-            </div>
+              <div class="group">
+                <input type="password" class="signinInput" ng-model="password" required>
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <label>Password</label>
+              </div>
 
-            <md-button class="md-button md-raised theme" ng-click="signin(username, password)">Login</md-button>
-          </form>
-        </md-card>
+              <md-button class="md-button md-raised theme" ng-click="signin(username, password)">Login</md-button>
+            </form>
+          </md-card>
+
+          <h1 class="md-display-3 authTitle">Sign Up</h1>
+          <md-card class="authCard">
+            <form>
+              <div class="group">
+                <input type="text" class="signinInput" ng-model="signupName" required>
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <label>Name</label>
+              </div>
+
+              <div class="group">
+                <input type="text" class="signinInput" ng-model="signupUsername" required>
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <label>Email</label>
+              </div>
+
+              <div class="group">
+                <input type="password" class="signinInput" ng-model="signupPassword" required>
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <label>Password</label>
+              </div>
+
+              <md-button class="md-button md-raised theme" ng-click="signup(signupName, signupUsername, signupPassword)">Sign Up</md-button>
+            </form>
+          </md-card>
+
+        </div>
       </div>
 
       <div class="main-body" ng-hide="!signedIn">

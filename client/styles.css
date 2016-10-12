@@ -71,7 +71,7 @@ md-card {
 }
 
 .authTitle {
-  padding-top: 90px;
+  padding-top: 25px;
 }
 
 .md-display-3 {
@@ -86,7 +86,7 @@ md-card {
   text-align: center;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 150px;
+  margin-top: 60px;
   width: 800px;
   padding-top: 30px;
 }

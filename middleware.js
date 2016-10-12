@@ -17,7 +17,7 @@ Middleware.checkAuth = function (req, res, next) {
 }
 
 Middleware.hashPass = function (req, res, next) {
-  bcrypt.hash(req.body.password, 14, function(err, hash) {
+  bcrypt.hash(req.body.password, 12, function(err, hash) {
     if (err) {
       res.err(err);
     } else {
