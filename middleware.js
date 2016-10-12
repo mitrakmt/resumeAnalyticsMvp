@@ -8,7 +8,6 @@ const request = require('request');
 const fs = require('fs');
 const indico = require('indico.io');
 
-
 Middleware.checkAuth = function (req, res, next) {
   if (req.session.user) {
     next();
@@ -18,7 +17,7 @@ Middleware.checkAuth = function (req, res, next) {
 }
 
 Middleware.hashPass = function (req, res, next) {
-  bcrypt.hash(req.body.password, 8, function(err, hash) {
+  bcrypt.hash(req.body.password, 14, function(err, hash) {
     if (err) {
       res.err(err);
     } else {
@@ -41,15 +40,15 @@ Middleware.checkEmailValidity = function (req, res, next) {
 Middleware.checkPass = function (req, res, next) {
   User.findOne({"email": req.body.email}, function (err, result) {
     bcrypt.compare(req.body.password, result.password, function(err, response) {
-        if (err) {
-          res.err(err)
-        }
+      if (err) {
+        res.err(err)
+      }
 
-        if (response) {
-          next();
-        } else {
-          res.status(400).send("Thee's email or password is incorrect");
-        }
+      if (response) {
+        next();
+      } else {
+        res.status(400).send("Thee's email or password is incorrect");
+      }
     });
   })
 }
@@ -75,11 +74,9 @@ Middleware.destroyToken = function (req, res, next) {
   });
 }
 
-
 Middleware.findUser = function (req, res, next) {
   co(function* () {
-      console.log("Inside promise")
-      return User.findOne({email: 'mike.mitrakos@gmail.com'})
+    return User.findOne({email: 'mike.mitrakos@gmail.com'})
   })
   .then(function (user) {
     req.body.resume = user.resume;

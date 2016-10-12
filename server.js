@@ -26,5 +26,4 @@ app.use('/', express.static(__dirname + '/client'));
 app.use('/api', rootRouter);
 
 app.listen(port);
-
 console.log(`Listening on port ${port}`);

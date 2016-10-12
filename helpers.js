@@ -56,7 +56,6 @@ Helpers.keywords = function (req, res, next) {
   }
 
   req.body.keywords = count;
-  console.log("KEYWORDS", count)
   next();
 }
 
@@ -86,8 +85,6 @@ Helpers.languageScore = function (req, res, next) {
     if (error) {
       throw new Error(error);
     } else {
-      console.log("LANGUAGE SCORE")
-      // THIS IS THE SENTIMENT
       if (body.value < .2) {
         req.body.sentimentHelp = "Try to use a more positive tone in describing what you accomplished... :)";
       } else {
@@ -101,20 +98,17 @@ Helpers.languageScore = function (req, res, next) {
       }
 
       req.body.sentiment = body.value * 10;
-      // THIS IS THE LANGUAGE SCORE
       req.body.languageScore = body.ten_degree;
-      console.log(req.body.languageScore)
       next();
     }
-  })
-
+  });
 }
 
 //length based on good numbers inputted
 Helpers.lengthChecker = function (req, res, next) {
-  console.log("INSIDE LENGTH CHECKER")
   let score = 0;
   let resumeLength = req.body.resume.split(' ').length;
+
   if (resumeLength > 700) {
     score = 3;
     req.body.lengthScoreHelp = "Do you have 15 years of work experience? I didn't think so.. so get your resume down to one page.";
@@ -127,12 +121,10 @@ Helpers.lengthChecker = function (req, res, next) {
   }
 
   req.body.lengthScore = score;
-  console.log(score)
   next();
 }
 
 Helpers.totalScore = function (req, res, next) {
-  console.log("TOTAL SCORE")
   req.body.totalScore = (req.body.lengthScore * 1.5) + (req.body.languageScore * 2) + (req.body.keywords * 1.5) + (req.body.sentiment * 3);
   next();
 }
