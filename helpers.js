@@ -32,8 +32,6 @@ Helpers.readability = function (req, res, next) {
     }
 
     req.body.readability = body.audience.level;
-    console.log("INSIDE READABILITY");
-    console.log(body.audience.level)
     next();
   });
 }
@@ -125,7 +123,7 @@ Helpers.lengthChecker = function (req, res, next) {
 }
 
 Helpers.totalScore = function (req, res, next) {
-  req.body.totalScore = (req.body.lengthScore * 1.5) + (req.body.languageScore * 2) + (req.body.keywords * 1.5) + (req.body.sentiment * 3);
+  req.body.totalScore = (req.body.lengthScore * 1.5) + (req.body.languageScore * 2) + (req.body.keywords * 1.5) + (req.body.sentiment * 3) + (req.body.readability * 2);
   next();
 }
 
